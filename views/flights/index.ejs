@@ -2,10 +2,21 @@
 <table>
   <thead>
     <tr>
-      <th>Flight No.</th>
-      <th>Airline</th>
-      <th>Destination</th>
-      <th>Departure Time</th>
+      <% [
+        ['Flight No.', 'flightNo'],
+        ['Airline', 'airline'],
+        ['Destination', 'airport'],
+        ['Departure Time', 'departs']
+      ].forEach(col => { %>
+      <th>
+        <a href="<%= `?sort=${col[1]}&${
+          req.query.sort === col[1] && req.query.ascending
+            ? 'descending'
+            : 'ascending'}=true` %>">
+          <%= col[0] %>
+        </a>
+      </th>
+      <% }); %>
     </tr>
   </thead>
   <tbody>

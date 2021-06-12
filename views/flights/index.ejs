@@ -1,5 +1,5 @@
 <%- include('../partials/header', {title: 'All Flights'}); %>
-<table>
+<table class="flights">
   <thead>
     <tr>
       <% [
@@ -9,10 +9,10 @@
         ['Departure Time', 'departs']
       ].forEach(col => { %>
       <th>
-        <a href="<%= `?sort=${col[1]}&${
+        <a href="<%= `?sort=${ col[1] }&${
           req.query.sort === col[1] && req.query.ascending
             ? 'descending'
-            : 'ascending'}=true` %>">
+            : 'ascending' }=true` %>">
           <%= col[0] %>
         </a>
       </th>
@@ -21,7 +21,10 @@
   </thead>
   <tbody>
     <% flights.forEach(flight => { %>
-    <tr>
+    <tr class="flights__flight <%= flight.departs < new Date()
+        ? 'flights__flight--past'
+        : `flights__flight--future`
+      %>">
       <td><%= flight.flightNo %></td>
       <td><%= flight.airline %></td>
       <td><%= flight.airport %></td>

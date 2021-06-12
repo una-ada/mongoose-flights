@@ -28,5 +28,8 @@ module.exports = {
    * @param {mongoose.Request} req
    * @param {mongoose.Response} res
    */
-  new: (req, res) => res.send('Test'),
+  new: (req, res) =>
+    res.render('flights/new', {
+      departs: new Flight().departs.toISOString().slice(0, 16),
+    }),
 };

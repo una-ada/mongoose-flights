@@ -1,3 +1,9 @@
+/**
+ * Main server script.
+ * @author Una
+ * @version 2021.06.12
+ */
+
 /*----- Imports --------------------------------------------------------------*/
 const createError = require('http-errors'),
   express = require('express'),
@@ -5,10 +11,10 @@ const createError = require('http-errors'),
   cookieParser = require('cookie-parser'),
   logger = require('morgan'),
   indexRouter = require('./routes/index'),
-  flightsRouter = require('./routes/flights'),
-  app = express();
+  flightsRouter = require('./routes/flights');
 
 /*----- Middleware -----------------------------------------------------------*/
+const app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(logger('dev'));

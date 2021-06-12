@@ -1,9 +1,16 @@
-var express = require('express');
-var router = express.Router();
+/**
+ * Flights router.
+ * @author Una
+ * @version 2021.06.12
+ * @module routes/flights
+ */
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
-});
+/*----- Imports --------------------------------------------------------------*/
+const express = require('express'),
+  router = express.Router();
 
+/*----- Routes ---------------------------------------------------------------*/
+router.get('/', (req, res) => res.send('TEST'));
+
+/*----- Exports --------------------------------------------------------------*/
 module.exports = router;

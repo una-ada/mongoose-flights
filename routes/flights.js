@@ -3,14 +3,17 @@
  * @author Una
  * @version 2021.06.12
  * @module routes/flights
+ * @see module:controllers/flights
+ * @see module:model/flight
  */
 
 /*----- Imports --------------------------------------------------------------*/
 const express = require('express'),
-  router = express.Router();
+  router = express.Router(),
+  flightsCtrl = require('../controllers/flights');
 
 /*----- Routes ---------------------------------------------------------------*/
-router.get('/', (req, res) => res.send('TEST'));
+router.get('/', flightsCtrl.index);
 
 /*----- Exports --------------------------------------------------------------*/
 module.exports = router;

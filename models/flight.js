@@ -4,6 +4,7 @@
  * @version 2021.06.12
  * @module models/flight
  * @see module:routes/flights
+ * @see module:model/flight
  */
 
 /*----- Imports --------------------------------------------------------------*/

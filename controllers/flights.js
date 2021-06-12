@@ -18,10 +18,16 @@ export default {
    * @param {mongoose.Response} res
    */
   index: (req, res) =>
-    Flight.find({}, (err, flights) =>
-      err
-        ? console.error(err) || res.createError(500)
-        : res.render('flights/index', { flights })
+    console.log(req.query.sort) ||
+    Flight.find(
+      {},
+      null,
+      // Sort based on query
+      { sort: { [req.query.sort || '_id']: req.query.descending ? -1 : 1 } },
+      (err, flights) =>
+        err
+          ? console.error(err) || res.createError(500)
+          : res.render('flights/index', { req, flights })
     ),
   /**
    * Render new flight form.

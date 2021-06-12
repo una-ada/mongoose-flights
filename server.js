@@ -13,8 +13,11 @@ const createError = require('http-errors'),
   indexRouter = require('./routes/index'),
   flightsRouter = require('./routes/flights');
 
-/*----- Middleware -----------------------------------------------------------*/
+/*----- Initialize -----------------------------------------------------------*/
 const app = express();
+require('./config/database');
+
+/*----- Middleware -----------------------------------------------------------*/
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(logger('dev'));

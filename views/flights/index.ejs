@@ -1,11 +1,22 @@
 <%- include('../partials/header', {title: 'All Flights'}); %>
-<% if(flights.length){ %>
-<ul>
-  <% flights.forEach(flight => { %>
-  <li>
-    <%= flight.airline %> Flight #<%= flight.flightNo %> departs from <%=
-    flight.airport %> at <%= flight.departs %>
-  </li>
-  <% }); %>
-</ul>
-<% }; %> <%- include('../partials/footer'); %>
+<table>
+  <thead>
+    <tr>
+      <th>Flight No.</th>
+      <th>Airline</th>
+      <th>Destination</th>
+      <th>Departure Time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% flights.forEach(flight => { %>
+    <tr>
+      <td><%= flight.flightNo %></td>
+      <td><%= flight.airline %></td>
+      <td><%= flight.airport %></td>
+      <td><%= flight.departs.toLocaleString() %></td>
+    </tr>
+    <% }); %>
+  </tbody>
+</table>
+<%- include('../partials/footer'); %>

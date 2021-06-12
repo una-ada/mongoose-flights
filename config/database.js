@@ -4,7 +4,7 @@
  * @version 2021.06.12
  */
 
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 mongoose.connect('mongodb://localhost/flights', {
   useNewUrlParser: true,
   useCreateIndex: true,

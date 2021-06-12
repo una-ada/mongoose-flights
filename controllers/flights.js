@@ -8,10 +8,10 @@
  */
 
 /*----- Imports --------------------------------------------------------------*/
-const Flight = require('../models/flight');
+import Flight from '../models/flight.js';
 
 /*----- Export Methods -------------------------------------------------------*/
-module.exports = {
+export default {
   /**
    * Render flights index page.
    * @param {mongoose.Request} req

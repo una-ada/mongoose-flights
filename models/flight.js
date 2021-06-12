@@ -8,9 +8,10 @@
  */
 
 /*----- Imports --------------------------------------------------------------*/
-const mongoose = require('mongoose'),
-  /*----- Schema -------------------------------------------------------------*/
-  flightSchema = new mongoose.Schema(
+import mongoose from 'mongoose';
+
+/*------- Schema -------------------------------------------------------------*/
+const flightSchema = new mongoose.Schema(
     {
       airline: {
         type: String,
@@ -41,4 +42,4 @@ const mongoose = require('mongoose'),
   );
 
 /*----- Exports --------------------------------------------------------------*/
-module.exports = mongoose.model('Flight', flightSchema);
+export default mongoose.model('Flight', flightSchema);

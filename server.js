@@ -5,17 +5,20 @@
  */
 
 /*----- Imports --------------------------------------------------------------*/
-const createError = require('http-errors'),
-  express = require('express'),
-  path = require('path'),
-  cookieParser = require('cookie-parser'),
-  logger = require('morgan'),
-  indexRouter = require('./routes/index'),
-  flightsRouter = require('./routes/flights');
+import createError from 'http-errors';
+import express from 'express';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
+import indexRouter from './routes/index.js';
+import flightsRouter from './routes/flights.js';
 
 /*----- Initialize -----------------------------------------------------------*/
-const app = express();
-require('./config/database');
+// Infill for `__dirname`
+// see: https://techsparx.com/nodejs/esnext/dirname-es-modules.html
+const __dirname = path.dirname(new URL(import.meta.url).pathname),
+  app = express();
+import './config/database.js';
 
 /*----- Middleware -----------------------------------------------------------*/
 app.set('views', path.join(__dirname, 'views'));
@@ -42,4 +45,4 @@ app.use(function (err, req, res, next) {
 });
 
 /*----- Exports --------------------------------------------------------------*/
-module.exports = app;
+export default app;

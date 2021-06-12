@@ -8,13 +8,13 @@
  */
 
 /*----- Imports --------------------------------------------------------------*/
-const express = require('express'),
-  router = express.Router(),
-  flightsCtrl = require('../controllers/flights');
+import {Router} from 'express';
+import flightsCtrl from '../controllers/flights.js';
 
 /*----- Routes ---------------------------------------------------------------*/
+const router = Router();
 router.get('/', flightsCtrl.index);
 router.get('/new', flightsCtrl.new);
 
 /*----- Exports --------------------------------------------------------------*/
-module.exports = router;
+export default router;

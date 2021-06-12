@@ -32,4 +32,15 @@ export default {
     res.render('flights/new', {
       departs: new Flight().departs.toISOString().slice(0, 16),
     }),
+  /**
+   * Add new flight to flights db.
+   * @param {mongoose.Request} req
+   * @param {mongoose.Response} res
+   */
+  create: (req, res) =>
+    Flight.create(req.body, err =>
+      err
+        ? console.error(err) || res.createError(500)
+        : res.redirect('/flights')
+    ),
 };

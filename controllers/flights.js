@@ -11,11 +11,16 @@
 const Flight = require('../models/flight');
 
 /*----- Methods --------------------------------------------------------------*/
+/**
+ * Render flights index page.
+ * @param {mongoose.Request} req
+ * @param {mongoose.Response} res
+ */
 const index = (req, res) =>
   Flight.find({}, (err, flights) =>
     err
       ? console.error(err) || res.createError(500)
-      : console.log(flights) || res.send('Test') // change to res.render
+      : res.render('flights/index', { flights })
   );
 
 /*----- Exports --------------------------------------------------------------*/

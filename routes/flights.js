@@ -14,6 +14,7 @@ import flightsCtrl from '../controllers/flights.js';
 /*----- Routes ---------------------------------------------------------------*/
 const router = Router();
 router.get('/', flightsCtrl.index);
+router.post('/', flightsCtrl.create);
 router.get('/new', flightsCtrl.new);
 
 /*----- Exports --------------------------------------------------------------*/

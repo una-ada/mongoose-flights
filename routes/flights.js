@@ -14,6 +14,7 @@ const express = require('express'),
 
 /*----- Routes ---------------------------------------------------------------*/
 router.get('/', flightsCtrl.index);
+router.get('/new', flightsCtrl.new);
 
 /*----- Exports --------------------------------------------------------------*/
 module.exports = router;

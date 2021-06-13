@@ -30,6 +30,15 @@ export default {
           : res.render('flights/index', { req, flights })
     ),
   /**
+   * Render details for a single flight.
+   * @param {mongoose.Request} req
+   * @param {mongoose.Response} res
+   */
+  show: (req, res) =>
+    Flight.findById(req.params.id, (err, flight) =>
+      res.render('flights/show', { flight })
+    ),
+  /**
    * Render new flight form.
    * @param {mongoose.Request} req
    * @param {mongoose.Response} res

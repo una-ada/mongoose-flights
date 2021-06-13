@@ -11,6 +11,7 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import indexRouter from './routes/index.js';
+import destinationsRouter from './routes/destinations.js';
 import flightsRouter from './routes/flights.js';
 
 /*----- Initialize -----------------------------------------------------------*/
@@ -31,6 +32,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 /*----- Routers --------------------------------------------------------------*/
 app.use('/', indexRouter);
+app.use('/', destinationsRouter);
 app.use('/flights', flightsRouter);
 
 /*----- Error Handling -------------------------------------------------------*/

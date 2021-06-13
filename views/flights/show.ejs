@@ -25,7 +25,7 @@
       <td rowspan="<%= flight.destinations.length %>">Destinations</td>
     <% } %>
     <td><%= longAirport[destination.airport] %></td>
-    <td><%= destination.arrives.toLocaleString() %></td>
+    <td><%= destination.arrival.toLocaleString() %></td>
   <% })} else { %>
   <tr>
     <td colspan="2">Destinations</td>
@@ -38,7 +38,7 @@
   <%- include('../partials/airport-select'); %>
   <br />
   <label>Arrival Time:</label>
-  <input name="arrives" type="datetime-local" />
+  <input name="arrival" type="datetime-local" />
   <br />
   <input type="submit" value="Add Destination" />
 </form>

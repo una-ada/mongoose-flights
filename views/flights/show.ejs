@@ -1,0 +1,23 @@
+<%- include('../partials/header', {
+  title: `${flight.airline} Flight #${flight.flightNo}`
+});
+%>
+<table>
+  <tr>
+    <td>Flight No.</td>
+    <td><%= flight.flightNo %></td>
+  </tr>
+  <tr>
+    <td>Airline</td>
+    <td><%= flight.airline %></td>
+  </tr>
+  <tr>
+    <td>Airport</td>
+    <td><%= longAirport[flight.airport] %></td>
+  </tr>
+  <tr>
+    <td>Departure Time</td>
+    <td><%= flight.departs.toLocaleString() %></td>
+  </tr>
+</table>
+<%- include('../partials/footer'); %>

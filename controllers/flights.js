@@ -10,6 +10,14 @@
 /*----- Imports --------------------------------------------------------------*/
 import Flight from '../models/flight.js';
 
+const longAirport = {
+  ATL: 'Hartsfield-Jackson Atlanta (ATL)',
+  DFW: 'Dallas/Fort Worth (DFW)',
+  DEN: 'Denver (DEN)',
+  LAX: 'Los Angeles (LAX)',
+  SAN: 'San Diego (SAN)',
+};
+
 /*----- Export Methods -------------------------------------------------------*/
 export default {
   /**
@@ -36,7 +44,7 @@ export default {
    */
   show: (req, res) =>
     Flight.findById(req.params.id, (err, flight) =>
-      res.render('flights/show', { flight })
+      res.render('flights/show', { flight, longAirport })
     ),
   /**
    * Render new flight form.

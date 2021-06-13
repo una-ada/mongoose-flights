@@ -4,20 +4,33 @@
 %>
 <table>
   <tr>
-    <td>Flight No.</td>
+    <td colspan="2">Flight No.</td>
     <td><%= flight.flightNo %></td>
   </tr>
   <tr>
-    <td>Airline</td>
+    <td colspan="2">Airline</td>
     <td><%= flight.airline %></td>
   </tr>
   <tr>
-    <td>Airport</td>
+    <td colspan="2">Airport</td>
     <td><%= longAirport[flight.airport] %></td>
   </tr>
   <tr>
-    <td>Departure Time</td>
+    <td colspan="2">Departure Time</td>
     <td><%= flight.departs.toLocaleString() %></td>
   </tr>
+  <% if(flight.destinations.length){
+    flight.destinations.forEach((destination, i) => { %>
+    <% if(!i){ %>
+      <td rowspan="<%= flight.destinations.length %>">Destinations</td>
+    <% } %>
+    <td><%= longAirport[destination.airport] %></td>
+    <td><%= destination.arrives.toLocaleString() %></td>
+  <% })} else { %>
+  <tr>
+    <td colspan="2">Destinations</td>
+    <td>n/a</td>
+  </tr>
+  <% } %>
 </table>
 <%- include('../partials/footer'); %>

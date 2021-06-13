@@ -11,7 +11,14 @@
 import mongoose from 'mongoose';
 
 /*------- Schema -------------------------------------------------------------*/
-const flightSchema = new mongoose.Schema(
+const destinationSchema = new mongoose.Schema({
+    airport: {
+      type: String,
+      enum: ['ATL', 'DFW', 'DEN', 'LAX', 'SAN'],
+    },
+    arrival: Date,
+  }),
+  flightSchema = new mongoose.Schema(
     {
       airline: {
         type: String,
@@ -37,6 +44,7 @@ const flightSchema = new mongoose.Schema(
             new Date()
           ),
       },
+      destinations: [destinationSchema],
     },
     { timestamps: true }
   );

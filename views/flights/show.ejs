@@ -21,11 +21,13 @@
   </tr>
   <% if(flight.destinations.length){
     flight.destinations.forEach((destination, i) => { %>
-    <% if(!i){ %>
-      <td rowspan="<%= flight.destinations.length %>">Destinations</td>
-    <% } %>
-    <td><%= longAirport[destination.airport] %></td>
-    <td><%= destination.arrival.toLocaleString() %></td>
+    <tr>
+      <% if(!i){ %>
+        <td rowspan="<%= flight.destinations.length %>">Destinations</td>
+      <% } %>
+      <td><%= longAirport[destination.airport] %></td>
+      <td><%= destination.arrival.toLocaleString() %></td>
+    </tr>
   <% })} else { %>
   <tr>
     <td colspan="2">Destinations</td>

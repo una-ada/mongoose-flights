@@ -16,6 +16,7 @@ const router = Router();
 router.get('/', flightsCtrl.index);
 router.post('/', flightsCtrl.create);
 router.get('/new', flightsCtrl.new);
+router.get('/:id', flightsCtrl.show);
 
 /*----- Exports --------------------------------------------------------------*/
 export default router;

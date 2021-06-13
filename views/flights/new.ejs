@@ -11,14 +11,7 @@
     <option value="United">United</option>
   </select>
   <br />
-  <label>Airport</label>
-  <select name="airport">
-    <option value="ATL">Hartsfield-Jackson Atlanta (ATL)</option>
-    <option value="DFW">Dallas/Fort Worth (DFW)</option>
-    <option value="DEN" selected>Denver (DEN)</option>
-    <option value="LAX">Los Angeles (LAX)</option>
-    <option value="SAN">San Diego (SAN)</option>
-  </select>
+  <%- include('../partials/airport-select'); %>
   <br />
   <label>Departure Time</label>
   <input name="departs" type="datetime-local" value="<%= departs %>" />

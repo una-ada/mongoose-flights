@@ -23,8 +23,8 @@ const longAirport = {
 export default {
   /**
    * Render flights index page.
-   * @param {mongoose.Request} req
-   * @param {mongoose.Response} res
+   * @param {express.Request} req
+   * @param {express.Response} res
    */
   index: (req, res) =>
     console.log(req.query.sort) ||
@@ -40,8 +40,8 @@ export default {
     ),
   /**
    * Render details for a single flight.
-   * @param {mongoose.Request} req
-   * @param {mongoose.Response} res
+   * @param {express.Request} req
+   * @param {express.Response} res
    */
   show: (req, res) =>
     Flight.findById(req.params.id, (err, flight) =>
@@ -56,8 +56,8 @@ export default {
     ),
   /**
    * Render new flight form.
-   * @param {mongoose.Request} req
-   * @param {mongoose.Response} res
+   * @param {express.Request} req
+   * @param {express.Response} res
    */
   new: (req, res) =>
     res.render('flights/new', {
@@ -65,8 +65,8 @@ export default {
     }),
   /**
    * Add new flight to flights db.
-   * @param {mongoose.Request} req
-   * @param {mongoose.Response} res
+   * @param {express.Request} req
+   * @param {express.Response} res
    */
   create: (req, res) =>
     Flight.create(req.body, err =>

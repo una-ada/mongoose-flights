@@ -9,6 +9,7 @@
 
 /*----- Imports --------------------------------------------------------------*/
 import Flight from '../models/flight.js';
+import Ticket from '../models/ticket.js';
 
 const longAirport = {
   ATL: 'Hartsfield-Jackson Atlanta (ATL)',
@@ -44,7 +45,14 @@ export default {
    */
   show: (req, res) =>
     Flight.findById(req.params.id, (err, flight) =>
-      res.render('flights/show', { flight, longAirport })
+      err
+        ? console.error(err) || res.createError(500)
+        : Ticket.find({ flight: flight._id }, (err, tickets) =>
+            err
+              ? console.error(err) || res.createError(500)
+              : console.log(tickets) ||
+                res.render('flights/show', { flight, tickets, longAirport })
+          )
     ),
   /**
    * Render new flight form.

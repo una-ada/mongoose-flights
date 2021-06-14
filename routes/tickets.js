@@ -7,11 +7,11 @@
 
 /*----- Imports --------------------------------------------------------------*/
 import { Router } from 'express';
-// import ticketsCtrl from '../controllers/tickets.js';
+import ticketsCtrl from '../controllers/tickets.js';
 
 /*----- Routes ---------------------------------------------------------------*/
 const router = Router();
-router.post('/flights/:id/tickets', _ => res.send('Test'));
+router.post('/flights/:id/tickets', ticketsCtrl.create);
 
 /*----- Exports --------------------------------------------------------------*/
 export default router;

@@ -19,13 +19,15 @@
     <td colspan="2">Departure Time</td>
     <td><%= flight.departs.toLocaleString() %></td>
   </tr>
+  <%# This doesn't have to be in the table, maybe change that? %> 
   <% if(flight.destinations.length){
     flight.destinations.forEach((destination, i) => { %>
     <tr>
       <% if(!i){ %>
         <td rowspan="<%= flight.destinations.length %>">Destinations</td>
       <% } %>
-      <td><%= longAirport[destination.airport] %></td>
+      <%# Replace this with a Leaflet instance to display destinations? %>
+      <td><%= longAirports[destination.airport] %></td>
       <td><%= destination.arrival.toLocaleString() %></td>
     </tr>
   <% })} else { %>

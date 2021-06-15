@@ -12,6 +12,7 @@ import destinationsCtrl from '../controllers/destinations.js';
 /*----- Routes ---------------------------------------------------------------*/
 const router = Router();
 router.post('/flights/:id/destinations', destinationsCtrl.create);
+router.delete('/flights/:id/destinations/:id', destinationsCtrl.delete);
 
 /*----- Exports --------------------------------------------------------------*/
 export default router;

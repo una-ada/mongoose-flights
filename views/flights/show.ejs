@@ -45,7 +45,12 @@
   }); %>
   <br />
   <label>Arrival Time:</label>
-  <input name="arrival" type="datetime-local" required />
+  <input
+    name="arrival"
+    type="datetime-local"
+    value="<%= new Date().toISOString().slice(0, 16) %>"
+    required
+  />
   <br />
   <input type="submit" value="Add Destination" />
 </form>

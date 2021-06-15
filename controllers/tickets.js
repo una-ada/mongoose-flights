@@ -11,7 +11,6 @@ import Ticket from '../models/ticket.js';
 
 /*----- Export Methods -------------------------------------------------------*/
 export default {
-  
   /**
    * Render a form to add a Ticket to a Flight.
    * @param {express.Request} req
@@ -19,14 +18,14 @@ export default {
    */
   new: (req, res) =>
     Flight.findById(req.params.id, (err, flight) =>
-      err ? console.error(err) || res.createError(500) : res.send('TEST')
+      err
+        ? console.error(err) || res.createError(500)
+        : res.render('tickets/new', { flight })
     ),
-
   /**
    * Add a new ticket to a Flight.
    * @param {express.Request} req
    * @param {express.Response} res
    */
-  create: (req, res) =>
-    res.send('TEST'),
+  create: (req, res) => res.send('TEST'),
 };

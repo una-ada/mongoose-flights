@@ -1,7 +1,7 @@
 /**
  * Flights destinations controller.
  * @author Una
- * @version 2021.06.12
+ * @version 2021.06.14
  * @module controllers/destinations
  */
 
@@ -12,8 +12,8 @@ import Flight from '../models/flight.js';
 export default {
   /**
    * Add a new destination to a Flight.
-   * @param {mongoose.Request} req
-   * @param {mongoose.Response} res
+   * @param {express.Request} req
+   * @param {express.Response} res
    */
   create: (req, res) =>
     Flight.findById(req.params.id, (err, flight) =>

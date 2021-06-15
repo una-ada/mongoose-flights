@@ -1,7 +1,7 @@
 /**
  * Flights controller.
  * @author Una
- * @version 2021.06.12
+ * @version 2021.06.14
  * @module controllers/flights
  * @see module:routers/flights
  * @see module:models/flight
@@ -22,7 +22,6 @@ const longAirports = {
 
 /*----- Export Methods -------------------------------------------------------*/
 export default {
-
   /**
    * Render flights index page.
    * @param {express.Request} req
@@ -42,7 +41,6 @@ export default {
           : // Pass flights into index view
             res.render('flights/index', { req, flights })
     ),
-
   /**
    * Render details for a single flight.
    * @param {express.Request} req
@@ -65,7 +63,6 @@ export default {
                 res.render('flights/show', { flight, tickets, longAirports })
           )
     ),
-
   /**
    * Render new flight form.
    * @param {express.Request} req
@@ -77,7 +74,6 @@ export default {
       // Pass in default departure time formatted for HTML forms
       departs: new Flight().departs.toISOString().slice(0, 16),
     }),
-
   /**
    * Add new flight to flights db.
    * @param {express.Request} req

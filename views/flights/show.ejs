@@ -1,7 +1,5 @@
-<%- include('../partials/header', {
-  title: `${flight.airline} Flight #${flight.flightNo}`
-});
-%>
+<%- include('../partials/header', { title: `${flight.airline} Flight
+#${flight.flightNo}` }); %>
 <table>
   <tr>
     <td colspan="2">Flight No.</td>
@@ -19,24 +17,17 @@
     <td colspan="2">Departure Time</td>
     <td><%= flight.departs.toLocaleString() %></td>
   </tr>
-  <%# This doesn't have to be in the table, maybe change that? %> 
-  <% if(flight.destinations.length){
-    flight.destinations.forEach((destination, i) => { %>
-    <tr>
-      <% if(!i){ %>
-        <td rowspan="<%= flight.destinations.length %>">Destinations</td>
-      <% } %>
-      <%# Replace this with a Leaflet instance to display destinations? %>
-      <td><%= longAirports[destination.airport] %></td>
-      <td><%= destination.arrival.toLocaleString() %></td>
-    </tr>
-  <% })} else { %>
-  <tr>
-    <td colspan="2">Destinations</td>
-    <td>n/a</td>
-  </tr>
-  <% } %>
 </table>
+<h2>Destinations</h2>
+<ul>
+  <% flight.destinations.forEach(destination => { %>
+  <li>
+    <%# Replace this with a Leaflet instance to display destinations? %> <%=
+    longAirports[destination.airport] %> at <%=
+    destination.arrival.toLocaleString() %>
+  </li>
+  <% }); %>
+</ul>
 <h3>Add Destination</h3>
 <form action="/flights/<%= flight._id %>/destinations" method="POST">
   <%- include('../partials/airport-select'); %>
@@ -46,4 +37,10 @@
   <br />
   <input type="submit" value="Add Destination" />
 </form>
+<h2>Tickets</h2>
+<ul>
+  <% tickets.forEach(ticket => { %>
+  <li><%= ticket.seat %> - $<%= ticket.price %></li>
+  <% }); %>
+</ul>
 <%- include('../partials/footer'); %>

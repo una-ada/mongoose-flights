@@ -23,8 +23,14 @@
   <% flight.destinations.forEach(destination => { %>
   <li>
     <%# Replace this with a Leaflet instance to display destinations? %> <%=
-    longAirports[destination.airport] %> at <%=
-    destination.arrival && destination.arrival.toLocaleString() %>
+    longAirports[destination.airport] %> at <%= destination.arrival &&
+    destination.arrival.toLocaleString() %>
+    <form
+      action="<%= `/flights/${flight._id}/destinations/${destination._id}?_method=DELETE` %>"
+      method="POST"
+    >
+      <button type="submit">Remove</button>
+    </form>
   </li>
   <% }); %>
 </ul>

@@ -24,7 +24,7 @@
   <li>
     <%# Replace this with a Leaflet instance to display destinations? %> <%=
     longAirports[destination.airport] %> at <%=
-    destination.arrival.toLocaleString() %>
+    destination.arrival && destination.arrival.toLocaleString() %>
   </li>
   <% }); %>
 </ul>

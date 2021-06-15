@@ -10,6 +10,7 @@ import express from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import override from 'method-override';
 import indexRouter from './routes/index.js';
 import destinationsRouter from './routes/destinations.js';
 import ticketsRouter from './routes/tickets.js';
@@ -25,6 +26,7 @@ import './config/database.js';
 /*----- Middleware -----------------------------------------------------------*/
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+app.use(override('_method'));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

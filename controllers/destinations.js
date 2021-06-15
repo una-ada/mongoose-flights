@@ -26,4 +26,13 @@ export default {
               : res.redirect(`/flights/${flight._id}`)
           )
     ),
+  /**
+   * Remove a destination from a Flight.
+   * @param {express.Request} req
+   * @param {express.Response} res
+   */
+  delete: (req, res) =>
+    Flight.findById(req.params.id, (err, flight) =>
+      err ? console.error(err) || res.createError(500) : res.send('TEST')
+    ),
 };

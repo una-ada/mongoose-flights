@@ -47,19 +47,13 @@ export default {
    * @param {express.Response} res
    */
   show: (req, res) =>
-    // Get the flight by id
     Flight.findById(req.params.id, (err, flight) =>
       err
-        ? // Error handling for finding Flight
-          console.error(err) || res.createError(500)
-        : // Get all Tickets for this flight
-          Ticket.find({ flight: flight._id }, (err, tickets) =>
+        ? console.error(err) || res.createError(500)
+        : Ticket.find({ flight: flight._id }, (err, tickets) =>
             err
-              ? // Error handling for finding tickets
-                console.error(err) || res.createError(500)
-              : // Logging tickets to console for development
-                console.log(tickets) ||
-                // Pass flight and tickets into the show view
+              ? console.error(err) || res.createError(500)
+              : flight.destinations.sort((a, b) => a.arrival - b.arrival) &&
                 res.render('flights/show', { flight, tickets, longAirports })
           )
     ),

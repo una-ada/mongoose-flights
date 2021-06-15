@@ -11,6 +11,7 @@ import ticketsCtrl from '../controllers/tickets.js';
 
 /*----- Routes ---------------------------------------------------------------*/
 const router = Router();
+router.get('/flights/:id/tickets/new', ticketsCtrl.new)
 router.post('/flights/:id/tickets', ticketsCtrl.create);
 
 /*----- Exports --------------------------------------------------------------*/

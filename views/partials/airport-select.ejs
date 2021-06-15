@@ -1,8 +1,11 @@
 <label>Airport:</label>
 <select name="airport">
-  <option value="ATL">Hartsfield-Jackson Atlanta (ATL)</option>
-  <option value="DFW">Dallas/Fort Worth (DFW)</option>
-  <option value="DEN" selected>Denver (DEN)</option>
-  <option value="LAX">Los Angeles (LAX)</option>
-  <option value="SAN">San Diego (SAN)</option>
+  <% Object.keys(airports).forEach(a => {
+    if(excludes.indexOf(a) < 0){ %>
+      <option
+        value="<%= a %>"
+        <%= a === 'DEN' ? 'selected' : '' %>
+      ><%= airports[a] %></option>
+    <% }
+  }); %>
 </select>

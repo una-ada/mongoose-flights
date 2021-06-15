@@ -12,7 +12,7 @@ import Flight from '../models/flight.js';
 import Ticket from '../models/ticket.js';
 
 /*----- Constants ------------------------------------------------------------*/
-const longAirports = {
+const airports = {
   ATL: 'Hartsfield-Jackson Atlanta (ATL)',
   DFW: 'Dallas/Fort Worth (DFW)',
   DEN: 'Denver (DEN)',
@@ -54,7 +54,7 @@ export default {
             err
               ? console.error(err) || res.createError(500)
               : flight.destinations.sort((a, b) => a.arrival - b.arrival) &&
-                res.render('flights/show', { flight, tickets, longAirports })
+                res.render('flights/show', { flight, tickets, airports })
           )
     ),
   /**

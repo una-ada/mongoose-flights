@@ -12,5 +12,6 @@ a {
 }
 
 #flight__map {
-  height: 200px;
+  height: 300px;
+  width: 500px;
 }

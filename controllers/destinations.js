@@ -32,7 +32,14 @@ export default {
    * @param {express.Response} res
    */
   delete: (req, res) =>
-    Flight.findById(req.params.id, (err, flight) =>
-      err ? console.error(err) || res.createError(500) : res.send('TEST')
+    Flight.findById(req.params.fId, (err, flight) =>
+      err
+        ? console.error(err) || res.createError(500)
+        : flight.destinations.pull(req.params.dId) &&
+          flight.save(err =>
+            err
+              ? console.error(err) || res.createError(500)
+              : res.redirect(`/flights/${flight._id}`)
+          )
     ),
 };

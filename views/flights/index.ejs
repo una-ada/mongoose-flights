@@ -22,9 +22,9 @@
   </thead>
   <tbody>
     <% flights.forEach(flight => { %>
-    <tr class="flights__flight <%= flight.departs < new Date()
-        ? 'flights__flight--past'
-        : `flights__flight--future`
+    <tr class="flights__row <%= flight.departs < new Date()
+        ? 'flights__row--past'
+        : `flights__row--future`
       %>">
       <td><%= flight.flightNo %></td>
       <td><%= flight.airline %></td>

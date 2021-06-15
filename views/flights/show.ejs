@@ -20,6 +20,7 @@
   </tr>
 </table>
 <h2>Destinations</h2>
+<div id="flight__map"></div>
 <ul>
   <% flight.destinations.forEach(destination => { %>
   <li>
@@ -61,4 +62,7 @@
   <% }); %>
 </ul>
 <h3><a href="/flights/<%= flight._id %>/tickets/new">Add Ticket</a></h3>
+<script>
+  new FlightMap('flight__map');
+</script>
 <%- include('../partials/footer'); %>

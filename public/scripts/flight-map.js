@@ -13,6 +13,7 @@ class FlightMap {
   constructor(mapId) {
     this.map = L.map(mapId, {
       dragging: false,
+      scrollWheelZoom: false,
       zoomControl: false,
       zoomSnap: 0.25,
     }).fitBounds([

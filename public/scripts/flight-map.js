@@ -21,38 +21,21 @@ class FlightMap {
     ]);
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
       attribution:
-        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>' +
+        '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> ' +
         'contributors',
     }).addTo(this.map);
+    new L.Geodesic([FlightMap.airports.ATL, FlightMap.airports.LAX]).addTo(
+      this.map
+    );
   }
 
   /*----- Constants ----------------------------------------------------------*/
   /** @const {Object} airports Information about airports. */
   static airports = {
-    ATL: {
-      city: 'Atlanta, GA',
-      coords: [33.6367, -84.4281],
-      name: 'Hartsfield-Jackson Atlanta',
-    },
-    DFW: {
-      city: 'Dallas, TX',
-      coords: [32.8969, -97.0381],
-      name: 'Dallas/Fort Worth',
-    },
-    DEN: {
-      city: 'Denver, CO',
-      coords: [39.8617, -104.6731],
-      name: 'Denver',
-    },
-    LAX: {
-      city: 'Los Angeles, CA',
-      coords: [33.9425, -118.4081],
-      name: 'Los Angeles',
-    },
-    SAN: {
-      city: 'San Diego, CA',
-      coords: [32.7336, -117.1897],
-      name: 'San Diego',
-    },
+    ATL: [33.6367, -84.4281],
+    DFW: [32.8969, -97.0381],
+    DEN: [39.8617, -104.6731],
+    LAX: [33.9425, -118.4081],
+    SAN: [32.7336, -117.1897],
   };
 }

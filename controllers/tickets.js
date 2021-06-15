@@ -27,5 +27,16 @@ export default {
    * @param {express.Request} req
    * @param {express.Response} res
    */
-  create: (req, res) => res.send('TEST'),
+  create: (req, res) =>
+    Ticket.create(
+      {
+        seat: req.body.seat,
+        price: req.body.price,
+        flight: req.params.id,
+      },
+      err =>
+        err
+          ? console.error(err) || res.createError(500)
+          : res.redirect(`/flights/${req.params.id}`)
+    ),
 };

@@ -1,6 +1,9 @@
 <%- include('../partials/header', {
   title: `${flight.airline} Flight #${flight.flightNo}`
 }); %>
+<script id="flight__data" type="text/json">
+  <%- JSON.stringify(flight); %>
+</script>
 <table>
   <tr>
     <td colspan="2">Flight No.</td>
@@ -63,6 +66,9 @@
 </ul>
 <h3><a href="/flights/<%= flight._id %>/tickets/new">Add Ticket</a></h3>
 <script>
-  new FlightMap('flight__map');
+  const data = JSON.parse(
+    document.querySelector('#flight__data').text
+  ),
+    map = new FlightMap('flight__map', data);
 </script>
 <%- include('../partials/footer'); %>

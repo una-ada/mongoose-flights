@@ -9,8 +9,10 @@ class FlightMap {
   /**
    * Loads a map for a Flight.
    * @param {string} mapId Id of the element to render the map into.
+   * @param {Object} flight Flight
    */
-  constructor(mapId) {
+  constructor(mapId, flight) {
+    /*----- Leaflet Setup ----------------------------------------------------*/
     this.map = L.map(mapId, {
       dragging: false,
       scrollWheelZoom: false,
@@ -25,9 +27,17 @@ class FlightMap {
         '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> ' +
         'contributors',
     }).addTo(this.map);
-    new L.Geodesic([FlightMap.airports.ATL, FlightMap.airports.LAX]).addTo(
-      this.map
-    );
+    /*----- Route Setup ------------------------------------------------------*/
+    this.flight = flight;
+    // Sorting the destinations is handled in controller :)
+    this.route = flight.destinations.map(d => [d.airport, d.arrival]);
+    this.route.unshift([flight.airport, flight.departs]);
+    console.log(this.route);
+    this.route.forEach((v, i) =>
+      i < this.route.length - 1 && new L.Geodesic([
+        FlightMap.airports[this.route[i][0]],
+        FlightMap.airports[this.route[i + 1][0]],
+      ]).addTo(this.map));
   }
 
   /*----- Constants ----------------------------------------------------------*/
